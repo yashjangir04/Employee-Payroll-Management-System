@@ -5,8 +5,10 @@ import { Users } from 'lucide-react';
 import { LogOutIcon } from 'lucide-react';
 import { IndianRupeeIcon } from 'lucide-react';
 import { LayoutDashboardIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Navbar = () => {
+  const navigate=useNavigate();
   return (
     <div className='flex justify-between w-full h-[10%]'>
       <div className='flex flex-col gap-2'>
@@ -24,10 +26,16 @@ const Navbar = () => {
         <ul className='flex gap-5'>
           
               <div className='flex items-center justify-center'>
-                <li className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt-3 p-2 font-bold text-xl'><LayoutDashboardIcon className='cursor-pointer m-2'/> Dashboard</li>
-                <li className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt- p-2 font-bold text-xl '><Users className='cursor-pointer m-2'/> Employees</li>
-                <li className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt- p-2 font-bold text-xl ' ><ClipboardCheckIcon className='cursor-pointer m-2'/> Attendance</li>
-                <li className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt- p-2 font-bold text-xl '><IndianRupeeIcon className='cursor-pointer m-2'/> Payroll</li>
+                <li onClick={()=>{navigate("/")}} className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt-3 p-2 font-bold text-xl'><LayoutDashboardIcon className='cursor-pointer m-2'/> Dashboard</li>
+                <li onClick={()=>{
+                  navigate("/employees")
+                }} className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt- p-2 font-bold text-xl '><Users className='cursor-pointer m-2'/> Employees</li>
+                <li onClick={()=>{
+                  navigate("/attendance")
+                }} className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt- p-2 font-bold text-xl ' ><ClipboardCheckIcon className='cursor-pointer m-2'/> Attendance</li>
+                <li onClick={()=>{
+                  navigate("/payroll")
+                }} className='flex cursor-pointer items-center justify-center rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt- p-2 font-bold text-xl '><IndianRupeeIcon className='cursor-pointer m-2'/> Payroll</li>
                 <li className='flex cursor-pointer items-center justify-center h-10 w-10 rounded-full hover:bg-gray-200 lg:mt-10 lg:mr-10 mt-3 text-xl' ><LogOutIcon/></li>
               </div>
         </ul>
